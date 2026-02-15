@@ -4,7 +4,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 
+# This file contains the authentication routes for the website.
+# It is responsible for handling the login, logout and sign up of the users.
+
 auth = Blueprint('auth', __name__)
+
+# The login route is responsible for handling the login of the users.
+# It renders the login.html template and handles the POST request to log in the user.
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -26,12 +32,18 @@ def login():
 
     return render_template("login.html", user=current_user)
 
+# The logout route is responsible for handling the logout of the users.
+
 
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
+
+# The sign up route is responsible for handling the sign up of the users.
+# It renders the sign_up.html template and handles the POST request to
+# create a new user and log in the user.
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])

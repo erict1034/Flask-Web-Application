@@ -4,7 +4,13 @@ from .models import Note
 from . import db
 import json
 
+# This file contains the views for the website.
+# It is responsible for handling the routes and rendering the templates.
 views = Blueprint('views', __name__)
+
+# The home route is the main page of the website.
+# It is responsible for rendering the home template and handling the form
+# submission for adding a new note.
 
 
 @views.route('/', methods=['GET', 'POST'])
@@ -20,6 +26,8 @@ def home():
             db.session.commit()
             flash('Note added!', category='success')
     return render_template("home.html", user=current_user)
+
+# The delete-note route is responsible for handling the deletion of a note.
 
 
 @views.route('/delete-note', methods=['POST'])

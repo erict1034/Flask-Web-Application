@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+<!-- This file contains the base template for the website. 
+ It is responsible for rendering the navigation bar and the 
+ flash messages of the website. It also contains the block 
+ content which is used to render the content of the other 
+ templates. -->
+
+<!-- The navigation bar contains the links to the home, login, sign up and logout pages. The links are rendered based on the 
+ authentication status of the user. -->
 
 <head>
   <meta charset="utf-8" />
@@ -11,6 +19,7 @@
 
   <title>{% block title %}Home{% endblock %}</title>
 </head>
+<!-- The body of the template contains the navigation bar, the flash messages and the block content. -->
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,7 +39,8 @@
       </div>
     </div>
   </nav>
-
+  <!-- The flash messages are rendered in the form of alerts. 
+ The category of the message is used to determine the type of the alert. -->
   {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
   {% for category, message in messages %}

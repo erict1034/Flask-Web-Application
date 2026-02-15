@@ -1,6 +1,13 @@
 {%extends "base.html"%} {% block title %}Home{% endblock %}
 {% block content %}
 
+<!-- This file contains the template for the home page. 
+ It is responsible for rendering the notes of the user 
+ and handling the POST request to add a new note. -->
+
+<!-- The notes are rendered in a list and each note has 
+  a delete button to delete the note. -->
+
 <h1 align="center">Notes </h1>
 <ul class="list-group list-group-flush" id="notes">
     {% for note in user.notes %}
@@ -11,6 +18,8 @@
     </li>
     {% endfor %}
 </ul>
+
+<!-- The form to add a new note. It contains a textarea and a submit button. -->
 
 <form method="POST">
     <textarea name="note" id="note" class="form-control"></textarea>

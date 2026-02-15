@@ -3,9 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 
+# This file contains the initialization of the website.
+# It is responsible for creating the Flask app, initializing
+# the database and creating the database if it does not exist.
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
+
+# This function is responsible for creating the Flask app,
+# initializing the database and creating the database if it does not exist.
 
 
 def create_app():
@@ -34,6 +40,8 @@ def create_app():
         return User.query.get(int(id))
 
     return app
+
+# This function is responsible for creating the database if it does not exist.
 
 
 def create_database(app):
